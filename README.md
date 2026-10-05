@@ -118,7 +118,7 @@ Every solution follows the same layout so it is quick to scan:
 
 | # | Problem | Topic | Difficulty | Solution |
 |---|---|---|---|---|
-| 1 | 856. Score of Parentheses | String and Stack | 🟡 Medium | [View]() |
+| 1 | 856. Score of Parentheses | String and Stack | 🟡 Medium | [View](Solutions/856_Score_of_Parentheses.py) |
 | 2 | _Add your next problem_ | | | |
 
 ---
