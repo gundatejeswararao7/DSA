@@ -90,36 +90,62 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
+<img src="./assets/progress.svg" width="100%" />
+
+<!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 0 |
-| 🟡 Medium | 1 |
+| 🟡 Medium | 0 |
 | 🔴 Hard | 0 |
-| **Total** | **1** |
+| **Total** | **0** |
+<!-- PROGRESS:END -->
 
-> 📝 Update these numbers as the collection grows.
+> 🤖 These numbers update automatically every time I push a new solution.
 
 ---
 
 ## 🧾 Solution Format
 
-Every solution follows the same layout so it is quick to scan:
+Every solution file is named `number-problem-name.ext` (for example `0856-score-of-parentheses.py`)
+and starts with the same header, so it is quick to scan:
 
-| Section | What it contains |
-|---|---|
-| **Problem** | Title, number, difficulty, and link to LeetCode |
-| **Approach** | The core idea in a few lines |
-| **Complexity** | Time and space, with a short reason |
-| **Code** | Clean, commented implementation |
+```python
+"""
+856. Score of Parentheses
+Difficulty: Medium
+Topic: Stack
+Link: https://leetcode.com/problems/score-of-parentheses/
+
+Approach:
+    The core idea in a few lines.
+
+Complexity:
+    Time:  O(n)
+    Space: O(n)
+"""
+
+class Solution:
+    ...
+```
+
+---
+
+## 🤖 Self-Updating README
+
+A GitHub Action runs on every push. It reads the header of each solution file, then rewrites the
+**Progress Tracker** and the **Problem Log** automatically, including links to the code and to any
+problem images. Add a solution, push, and the README updates itself.
 
 ---
 
 ## 🗒️ Problem Log
 
+<!-- LOG:START -->
 | # | Problem | Topic | Difficulty | Solution |
 |---|---|---|---|---|
-| 1 | 856. Score of Parentheses | String and Stack | 🟡 Medium | [View](Solutions/856_Score_of_Parentheses.py) |
-| 2 | _Add your next problem_ | | | |
+| – | _No solutions yet_ | | | |
+<!-- LOG:END -->
 
 ---
 
