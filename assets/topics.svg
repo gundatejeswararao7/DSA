@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="440" rx="20" fill="url(#bg)"/>
+  <text x="600" y="48" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#e0e7ff">Topics Covered</text>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <!-- row 1 -->
+    <rect x="40" y="80" width="260" height="90" rx="14" fill="#4f46e5" fill-opacity="0.25" stroke="#818cf8"/>
+    <text x="170" y="118" font-size="22" font-weight="700" fill="#ffffff">Arrays &amp; Hashing</text>
+    <text x="170" y="146" font-size="14" fill="#c7d2fe">[ 1, 2, 3 ] + hash maps</text>
+
+    <rect x="320" y="80" width="260" height="90" rx="14" fill="#0d9488" fill-opacity="0.25" stroke="#5eead4"/>
+    <text x="450" y="118" font-size="22" font-weight="700" fill="#ffffff">Two Pointers</text>
+    <text x="450" y="146" font-size="14" fill="#99f6e4">l → ← r</text>
+
+    <rect x="600" y="80" width="260" height="90" rx="14" fill="#7c3aed" fill-opacity="0.25" stroke="#c4b5fd"/>
+    <text x="730" y="118" font-size="22" font-weight="700" fill="#ffffff">Sliding Window</text>
+    <text x="730" y="146" font-size="14" fill="#ddd6fe">[ i … j ] moves right</text>
+
+    <rect x="880" y="80" width="280" height="90" rx="14" fill="#db2777" fill-opacity="0.22" stroke="#f9a8d4"/>
+    <text x="1020" y="118" font-size="22" font-weight="700" fill="#ffffff">Stack &amp; Queue</text>
+    <text x="1020" y="146" font-size="14" fill="#fbcfe8">LIFO and FIFO</text>
+
+    <!-- row 2 -->
+    <rect x="40" y="190" width="260" height="90" rx="14" fill="#0d9488" fill-opacity="0.25" stroke="#5eead4"/>
+    <text x="170" y="228" font-size="22" font-weight="700" fill="#ffffff">Binary Search</text>
+    <text x="170" y="256" font-size="14" fill="#99f6e4">halve the space</text>
+
+    <rect x="320" y="190" width="260" height="90" rx="14" fill="#4f46e5" fill-opacity="0.25" stroke="#818cf8"/>
+    <text x="450" y="228" font-size="22" font-weight="700" fill="#ffffff">Linked List</text>
+    <text x="450" y="256" font-size="14" fill="#c7d2fe">● → ● → ● → null</text>
+
+    <rect x="600" y="190" width="260" height="90" rx="14" fill="#db2777" fill-opacity="0.22" stroke="#f9a8d4"/>
+    <text x="730" y="228" font-size="22" font-weight="700" fill="#ffffff">Trees &amp; BST</text>
+    <text x="730" y="256" font-size="14" fill="#fbcfe8">DFS, BFS, traversals</text>
+
+    <rect x="880" y="190" width="280" height="90" rx="14" fill="#7c3aed" fill-opacity="0.25" stroke="#c4b5fd"/>
+    <text x="1020" y="228" font-size="22" font-weight="700" fill="#ffffff">Heap / Priority Queue</text>
+    <text x="1020" y="256" font-size="14" fill="#ddd6fe">top-k and scheduling</text>
+
+    <!-- row 3 -->
+    <rect x="40" y="300" width="260" height="90" rx="14" fill="#db2777" fill-opacity="0.22" stroke="#f9a8d4"/>
+    <text x="170" y="338" font-size="22" font-weight="700" fill="#ffffff">Graphs</text>
+    <text x="170" y="366" font-size="14" fill="#fbcfe8">BFS, DFS, union-find</text>
+
+    <rect x="320" y="300" width="260" height="90" rx="14" fill="#7c3aed" fill-opacity="0.25" stroke="#c4b5fd"/>
+    <text x="450" y="338" font-size="22" font-weight="700" fill="#ffffff">Backtracking</text>
+    <text x="450" y="366" font-size="14" fill="#ddd6fe">choose, explore, undo</text>
+
+    <rect x="600" y="300" width="260" height="90" rx="14" fill="#4f46e5" fill-opacity="0.25" stroke="#818cf8"/>
+    <text x="730" y="338" font-size="22" font-weight="700" fill="#ffffff">Dynamic Programming</text>
+    <text x="730" y="366" font-size="14" fill="#c7d2fe">overlapping subproblems</text>
+
+    <rect x="880" y="300" width="280" height="90" rx="14" fill="#0d9488" fill-opacity="0.25" stroke="#5eead4"/>
+    <text x="1020" y="338" font-size="22" font-weight="700" fill="#ffffff">Greedy &amp; Intervals</text>
+    <text x="1020" y="366" font-size="14" fill="#99f6e4">best local choice</text>
+  </g>
+  <text x="600" y="420" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#a5b4fc">Plus Strings, Bit Manipulation, Math and Tries as the collection grows</text>
+</svg>

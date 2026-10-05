@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="160" viewBox="0 0 1200 160">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="50%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#a5b4fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="160" rx="20" fill="url(#bg)"/>
+  <g font-family="Consolas, Menlo, monospace" font-size="18" fill="#ffffff" opacity="0.12">
+    <text x="40" y="40">for (int i = 0; i &lt; n; i++)</text>
+    <text x="860" y="140">return dp[n];</text>
+    <text x="40" y="140">O(n)</text>
+    <text x="1100" y="40">O(1)</text>
+  </g>
+  <text x="600" y="78" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" fill="url(#txt)">Keep Solving. Keep Growing.</text>
+  <text x="600" y="115" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#e0e7ff">One problem a day builds the intuition that interviews test.</text>
+</svg>
