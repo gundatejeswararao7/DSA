@@ -93,9 +93,9 @@ space complexity so you can see which trade-offs were made.
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 0 |
-| 🟡 Medium | 0 |
+| 🟡 Medium | 1 |
 | 🔴 Hard | 0 |
-| **Total** | **0** |
+| **Total** | **1** |
 
 > 📝 Update these numbers as the collection grows.
 
@@ -118,7 +118,7 @@ Every solution follows the same layout so it is quick to scan:
 
 | # | Problem | Topic | Difficulty | Solution |
 |---|---|---|---|---|
-| 1 | Two Sum | Arrays & Hashing | 🟢 Easy | [View](#) |
+| 1 | 856. Score of Parentheses | String and Stack | 🟡 Medium | [View]() |
 | 2 | _Add your next problem_ | | | |
 
 ---
