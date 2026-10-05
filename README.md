@@ -96,9 +96,9 @@ space complexity so you can see which trade-offs were made.
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 0 |
-| 🟡 Medium | 0 |
+| 🟡 Medium | 1 |
 | 🔴 Hard | 0 |
-| **Total** | **0** |
+| **Total** | **1** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -144,7 +144,7 @@ problem images. Add a solution, push, and the README updates itself.
 <!-- LOG:START -->
 | # | Problem | Topic | Difficulty | Solution |
 |---|---|---|---|---|
-| – | _No solutions yet_ | | | |
+| 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | Solutions | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
 <!-- LOG:END -->
 
 ---
