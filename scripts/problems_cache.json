@@ -4,5 +4,11 @@
     "number": 856,
     "title": "Score of Parentheses",
     "topic": "String"
+  },
+  "valid-parenthesis-string": {
+    "difficulty": "Medium",
+    "number": 678,
+    "title": "Valid Parenthesis String",
+    "topic": "String"
   }
 }

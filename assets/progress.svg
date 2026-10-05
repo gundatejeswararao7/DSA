@@ -10,11 +10,11 @@
   <rect width="1200" height="190" rx="20" fill="url(#bg)"/>
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
     <text x="60" y="56" font-size="24" font-weight="700" fill="#e0e7ff">Progress</text>
-    <text x="1140" y="56" font-size="24" font-weight="800" fill="#5eead4" text-anchor="end">1 solved</text>
+    <text x="1140" y="56" font-size="24" font-weight="800" fill="#5eead4" text-anchor="end">2 solved</text>
     <rect x="60" y="92" width="1080" height="26" rx="13" fill="#ffffff" fill-opacity="0.10"/>
     <g clip-path="url(#round)">
   <rect x="60.0" y="92" width="1080.0" height="26" fill="#f59e0b"/>
     </g>
-    <circle cx="68" cy="152" r="8" fill="#22c55e"/><text x="86" y="158" font-size="18" fill="#e0e7ff">Easy: <tspan font-weight="700" fill="#ffffff">0</tspan></text><circle cx="328" cy="152" r="8" fill="#f59e0b"/><text x="346" y="158" font-size="18" fill="#e0e7ff">Medium: <tspan font-weight="700" fill="#ffffff">1</tspan></text><circle cx="588" cy="152" r="8" fill="#ef4444"/><text x="606" y="158" font-size="18" fill="#e0e7ff">Hard: <tspan font-weight="700" fill="#ffffff">0</tspan></text>
+    <circle cx="68" cy="152" r="8" fill="#22c55e"/><text x="86" y="158" font-size="18" fill="#e0e7ff">Easy: <tspan font-weight="700" fill="#ffffff">0</tspan></text><circle cx="328" cy="152" r="8" fill="#f59e0b"/><text x="346" y="158" font-size="18" fill="#e0e7ff">Medium: <tspan font-weight="700" fill="#ffffff">2</tspan></text><circle cx="588" cy="152" r="8" fill="#ef4444"/><text x="606" y="158" font-size="18" fill="#e0e7ff">Hard: <tspan font-weight="700" fill="#ffffff">0</tspan></text>
   </g>
 </svg>
