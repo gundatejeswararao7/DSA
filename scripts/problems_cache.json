@@ -1,4 +1,10 @@
 {
+  "minimum-add-to-make-parentheses-valid": {
+    "difficulty": "Medium",
+    "number": 921,
+    "title": "Minimum Add to Make Parentheses Valid",
+    "topic": "String"
+  },
   "score-of-parentheses": {
     "difficulty": "Medium",
     "number": 856,
