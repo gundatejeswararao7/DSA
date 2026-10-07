@@ -21,6 +21,7 @@ Difficulty is detected in this order:
 
 Run locally:  python scripts/update_readme.py            (add --offline to skip web lookups)
 """
+import hashlib
 import json
 import re
 import sys
@@ -46,6 +47,8 @@ LANG = {
     ".php": "PHP", ".scala": "Scala", ".sql": "SQL", ".dart": "Dart", ".r": "R",
 }
 IMG_EXT = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"}
+# folder names that only group files and are never used as a topic
+GENERIC_DIRS = {"solutions", "solution", "src", "code", "leetcode", "problems"}
 ICON = {"Easy": "🟢", "Medium": "🟡", "Hard": "🔴"}
 OFFLINE = "--offline" in sys.argv
 
@@ -168,7 +171,7 @@ def collect():
             p["number"] = p["number"] or int(m.group(1))
             p["hints"]["title"] = m.group(2)
         # topic hint: "Topic: Stack" in the header comment
-        m = re.search(r"(?im)^\W*topic\s*[:\-]\s*([A-Za-z &/]+?)\s*$", head)
+        m = re.search(r"(?im)^\W*topic\s*[:\-]\s*(\S.*?)\s*$", head)
         if m:
             p["hints"]["topic"] = m.group(1)
         # difficulty hint: Easy/Medium/Hard folder in the path
@@ -177,7 +180,8 @@ def collect():
                 p["hints"].setdefault("difficulty", part.capitalize())
         # topic hint: first folder that is not a difficulty or a numbered problem folder
         for part in rel.parts[:-1]:
-            if part.capitalize() in DIFFS or re.match(r"^\d+[-_. ]", part):
+            if (part.capitalize() in DIFFS or part.lower() in GENERIC_DIRS
+                    or re.match(r"^\d+[-_. ]", part)):
                 continue
             p["hints"].setdefault("topic", pretty(slugify(part)))
             break
@@ -327,7 +331,15 @@ def main():
     README.write_text(text, encoding="utf-8")
 
     PROGRESS_SVG.parent.mkdir(exist_ok=True)
-    PROGRESS_SVG.write_text(render_svg(counts, total), encoding="utf-8")
+    svg = render_svg(counts, total)
+    PROGRESS_SVG.write_text(svg, encoding="utf-8")
+
+    # GitHub and browsers cache README images, so a changed progress.svg can look stale.
+    # A version tag that changes with the picture forces a fresh download.
+    version = hashlib.md5(svg.encode("utf-8")).hexdigest()[:8]
+    text = re.sub(r'src="\./assets/progress\.svg[^"]*"',
+                  f'src="./assets/progress.svg?v={version}"', text)
+    README.write_text(text, encoding="utf-8")
     CACHE.write_text(json.dumps(cache, indent=2, sort_keys=True), encoding="utf-8")
 
     print(f"Updated README: {total} problems "
