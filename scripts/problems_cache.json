@@ -1,4 +1,10 @@
 {
+  "add-two-numbers": {
+    "difficulty": "Medium",
+    "number": 2,
+    "title": "Add Two Numbers",
+    "topic": "Linked List"
+  },
   "median-of-two-sorted-arrays": {
     "difficulty": "Hard",
     "number": 4,
