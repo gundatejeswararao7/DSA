@@ -95,10 +95,10 @@ space complexity so you can see which trade-offs were made.
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
-| 🟢 Easy | 0 |
+| 🟢 Easy | 1 |
 | 🟡 Medium | 3 |
 | 🔴 Hard | 0 |
-| **Total** | **3** |
+| **Total** | **4** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -144,6 +144,7 @@ problem images. Add a solution, push, and the README updates itself.
 <!-- LOG:START -->
 | # | Problem | Topic | Difficulty | Solution |
 |---|---|---|---|---|
+| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | Solutions | 🟢 Easy | [Python](./Solutions/1_Two_Sum.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Solutions | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | Solutions | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
 | 921 | [Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) | Stack | 🟡 Medium | [Python](./Solutions/921_Minimum_Add_to_Make_Parentheses_Valid.py) |

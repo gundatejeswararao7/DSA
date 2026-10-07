@@ -11,6 +11,12 @@
     "title": "Score of Parentheses",
     "topic": "String"
   },
+  "two-sum": {
+    "difficulty": "Easy",
+    "number": 1,
+    "title": "Two Sum",
+    "topic": "Array"
+  },
   "valid-parenthesis-string": {
     "difficulty": "Medium",
     "number": 678,
