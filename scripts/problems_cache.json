@@ -18,7 +18,7 @@
     "topic": "String"
   },
   "remove-outetmost-parenthesis": {
-    "difficulty": null,
+    "difficulty": "Easy",
     "number": 1021,
     "title": "Remove Outetmost Parenthesis",
     "topic": null
