@@ -90,7 +90,7 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=82c9f605" width="100%" />
+<img src="./assets/progress.svg?v=d33089a8" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
@@ -98,7 +98,8 @@ space complexity so you can see which trade-offs were made.
 | 🟢 Easy | 1 |
 | 🟡 Medium | 4 |
 | 🔴 Hard | 1 |
-| **Total** | **6** |
+| ⚪ Unclassified | 1 |
+| **Total** | **7** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -150,6 +151,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
 | 921 | [Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) | Stack | 🟡 Medium | [Python](./Solutions/921_Minimum_Add_to_Make_Parentheses_Valid.py) |
+| 1021 | [Remove Outetmost Parenthesis](https://leetcode.com/problems/remove-outetmost-parenthesis/) | — | ⚪ Unknown | [Python](./Solutions/1021_Remove_OutetMost_Parenthesis.py) |
 <!-- LOG:END -->
 
 ---

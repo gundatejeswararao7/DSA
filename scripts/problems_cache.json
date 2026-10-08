@@ -17,6 +17,12 @@
     "title": "Minimum Add to Make Parentheses Valid",
     "topic": "String"
   },
+  "remove-outetmost-parenthesis": {
+    "difficulty": null,
+    "number": 1021,
+    "title": "Remove Outetmost Parenthesis",
+    "topic": null
+  },
   "score-of-parentheses": {
     "difficulty": "Medium",
     "number": 856,
