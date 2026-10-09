@@ -11,6 +11,12 @@
     "title": "Median of Two Sorted Arrays",
     "topic": "Array"
   },
+  "min-insertions-to-balance-parenthesis": {
+    "difficulty": "Medium",
+    "number": 1541,
+    "title": "Minimum Insertions to Balance a Parentheses String",
+    "topic": null
+  },
   "minimum-add-to-make-parentheses-valid": {
     "difficulty": "Medium",
     "number": 921,
