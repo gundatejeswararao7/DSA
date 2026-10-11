@@ -35,6 +35,12 @@
     "title": "Score of Parentheses",
     "topic": "String"
   },
+  "sum-of-squares-of-special-elements": {
+    "difficulty": "Easy",
+    "number": 2778,
+    "title": "Sum of Squares of Special Elements ",
+    "topic": "Array"
+  },
   "two-sum": {
     "difficulty": "Easy",
     "number": 1,
