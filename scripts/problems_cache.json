@@ -29,6 +29,12 @@
     "title": "Remove Outetmost Parenthesis",
     "topic": null
   },
+  "reverse-integer": {
+    "difficulty": "Medium",
+    "number": 7,
+    "title": "Reverse Integer",
+    "topic": "Math"
+  },
   "score-of-parentheses": {
     "difficulty": "Medium",
     "number": 856,
