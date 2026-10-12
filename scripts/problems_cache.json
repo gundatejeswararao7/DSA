@@ -52,5 +52,11 @@
     "number": 678,
     "title": "Valid Parenthesis String",
     "topic": "String"
+  },
+  "valid-sudoku": {
+    "difficulty": "Medium",
+    "number": 36,
+    "title": "Valid Sudoku",
+    "topic": "Array"
   }
 }
