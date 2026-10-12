@@ -41,6 +41,12 @@
     "title": "Score of Parentheses",
     "topic": "String"
   },
+  "string-to-atoi": {
+    "difficulty": "Medium",
+    "number": 8,
+    "title": "String to Integer (atoi)",
+    "topic": null
+  },
   "sum-of-squares-of-special-elements": {
     "difficulty": "Easy",
     "number": 2778,
