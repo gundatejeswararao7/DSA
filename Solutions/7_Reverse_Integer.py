@@ -2,7 +2,7 @@
 7. Reverse Integer
 Difficulty: Medium
 Topic: Math
-Link: https://leetcode.com/problems/reverse-integer/
+Link: https://leetcode.com/problems/reverse-integer
 
 Approach:
     Check whether the integer is negative. If so, convert it to positive
