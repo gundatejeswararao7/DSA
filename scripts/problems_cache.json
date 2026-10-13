@@ -29,6 +29,12 @@
     "title": "Minimum Add to Make Parentheses Valid",
     "topic": "String"
   },
+  "palindrome": {
+    "difficulty": "Easy",
+    "number": 9,
+    "title": "Palindrome Number",
+    "topic": null
+  },
   "remove-outetmost-parenthesis": {
     "difficulty": "Easy",
     "number": 1021,

@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=f7b2841d" width="100%" />
+<img src="./assets/progress.svg?v=0d6ce3f2" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
-| 🟢 Easy | 3 |
+| 🟢 Easy | 4 |
 | 🟡 Medium | 9 |
 | 🔴 Hard | 1 |
-| **Total** | **13** |
+| **Total** | **14** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -149,6 +149,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | Array, Sorting | 🔴 Hard | [Python](./Solutions/4_Median_of_Two_Sorted_Arrays.py) |
 | 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) | Math | 🟡 Medium | [Python](./Solutions/7_Reverse_Integer.py) |
 | 8 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-atoi/) | String | 🟡 Medium | [Python](./Solutions/8_String_to_Atoi.py) |
+| 9 | [Palindrome Number](https://leetcode.com/problems/palindrome/) | Math, Two Pointers, String | 🟢 Easy | [Python](./Solutions/9_Palindrome.py) |
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Array, Hash Table, Matrix | 🟡 Medium | [Python](./Solutions/36_Valid_Sudoku.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
