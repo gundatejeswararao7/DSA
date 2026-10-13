@@ -11,6 +11,12 @@
     "title": "Container With Most Water",
     "topic": "Array"
   },
+  "integer-to-roman": {
+    "difficulty": "Medium",
+    "number": 12,
+    "title": "Integer to Roman",
+    "topic": "Hash Table"
+  },
   "max-alternating-sum-squares": {
     "difficulty": "Medium",
     "number": 3727,
