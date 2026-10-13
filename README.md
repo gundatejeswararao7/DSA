@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=d6d23da2" width="100%" />
+<img src="./assets/progress.svg?v=f7b2841d" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 3 |
-| 🟡 Medium | 8 |
+| 🟡 Medium | 9 |
 | 🔴 Hard | 1 |
-| **Total** | **12** |
+| **Total** | **13** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -156,6 +156,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 1021 | [Remove Outetmost Parenthesis](https://leetcode.com/problems/remove-outetmost-parenthesis/) | Stack, String | 🟢 Easy | [Python](./Solutions/1021_Remove_OutetMost_Parenthesis.py) |
 | 1541 | [Minimum Insertions to Balance a Parentheses String](https://leetcode.com/problems/min-insertions-to-balance-parenthesis/) | Stack, Greedy | 🟡 Medium | [Python](./Solutions/1541_Min_Insertions_To_Balance_Parenthesis.py) |
 | 2778 | [Sum of Squares of Special Elements ](https://leetcode.com/problems/sum-of-squares-of-special-elements/) | Array, Math | 🟢 Easy | [Python](./Solutions/2778_Sum_of_squares_of_special_elements.py) |
+| 3727 | [Maximum Alternating Subsequence Sum](https://leetcode.com/problems/max-alternating-sum-squares/) | Array, Sorting, Greedy | 🟡 Medium | [Python](./Solutions/3727_Max_Alternating_Sum_Squares.py) |
 <!-- LOG:END -->
 
 ---

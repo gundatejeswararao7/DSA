@@ -5,6 +5,12 @@
     "title": "Add Two Numbers",
     "topic": "Linked List"
   },
+  "max-alternating-sum-squares": {
+    "difficulty": "Medium",
+    "number": 3727,
+    "title": "Maximum Alternating Subsequence Sum",
+    "topic": null
+  },
   "median-of-two-sorted-arrays": {
     "difficulty": "Hard",
     "number": 4,
