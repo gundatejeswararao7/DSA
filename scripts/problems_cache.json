@@ -5,6 +5,12 @@
     "title": "Add Two Numbers",
     "topic": "Linked List"
   },
+  "container-with-most-water": {
+    "difficulty": "Medium",
+    "number": 11,
+    "title": "Container With Most Water",
+    "topic": "Array"
+  },
   "max-alternating-sum-squares": {
     "difficulty": "Medium",
     "number": 3727,
