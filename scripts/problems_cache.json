@@ -1,4 +1,10 @@
 {
+  "3sum": {
+    "difficulty": "Medium",
+    "number": 15,
+    "title": "3Sum",
+    "topic": "Array"
+  },
   "add-two-numbers": {
     "difficulty": "Medium",
     "number": 2,
