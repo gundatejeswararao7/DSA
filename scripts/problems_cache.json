@@ -17,6 +17,12 @@
     "title": "Integer to Roman",
     "topic": "Hash Table"
   },
+  "longest-common-prefix": {
+    "difficulty": "Easy",
+    "number": 14,
+    "title": "Longest Common Prefix",
+    "topic": "Array"
+  },
   "max-alternating-sum-squares": {
     "difficulty": "Medium",
     "number": 3727,

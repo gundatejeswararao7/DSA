@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=0e880dad" width="100%" />
+<img src="./assets/progress.svg?v=32faae12" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
-| 🟢 Easy | 4 |
+| 🟢 Easy | 5 |
 | 🟡 Medium | 12 |
 | 🔴 Hard | 1 |
-| **Total** | **17** |
+| **Total** | **18** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -152,6 +152,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 9 | [Palindrome Number](https://leetcode.com/problems/palindrome/) | Math, Two Pointers, String | 🟢 Easy | [Python](./Solutions/9_Palindrome.py) |
 | 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | Array, Two Pointers, Greedy | 🟡 Medium | [Python](./Solutions/11_Container_with_most_water.py) |
 | 12 | [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) | Hash Table, Math, String, Greedy | 🟡 Medium | [Python](./Solutions/12_Integer_to_Roman.py) |
+| 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Array, String | 🟢 Easy | [Python](./Solutions/14_Longest_Common_Prefix.py) |
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Array, Hash Table, Matrix | 🟡 Medium | [Python](./Solutions/36_Valid_Sudoku.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
