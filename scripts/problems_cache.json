@@ -29,6 +29,12 @@
     "title": "Integer to Roman",
     "topic": "Hash Table"
   },
+  "letter-combinations-of-phone-number": {
+    "difficulty": "Medium",
+    "number": 17,
+    "title": "Letter Combinations of a Phone Number",
+    "topic": null
+  },
   "longest-common-prefix": {
     "difficulty": "Easy",
     "number": 14,
