@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=e206f108" width="100%" />
+<img src="./assets/progress.svg?v=9bab44dc" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 5 |
-| 🟡 Medium | 13 |
+| 🟡 Medium | 14 |
 | 🔴 Hard | 1 |
-| **Total** | **19** |
+| **Total** | **20** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -154,6 +154,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 12 | [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) | Hash Table, Math, String, Greedy | 🟡 Medium | [Python](./Solutions/12_Integer_to_Roman.py) |
 | 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Array, String | 🟢 Easy | [Python](./Solutions/14_Longest_Common_Prefix.py) |
 | 15 | [3Sum](https://leetcode.com/problems/3sum/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/15_3Sum.py) |
+| 16 | [3sum Closet](https://leetcode.com/problems/3sum-closet/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/16_3Sum_Closet.py) |
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Array, Hash Table, Matrix | 🟡 Medium | [Python](./Solutions/36_Valid_Sudoku.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |

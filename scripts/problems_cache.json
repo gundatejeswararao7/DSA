@@ -5,6 +5,12 @@
     "title": "3Sum",
     "topic": "Array"
   },
+  "3sum-closet": {
+    "difficulty": "Medium",
+    "number": 16,
+    "title": "3sum Closet",
+    "topic": null
+  },
   "add-two-numbers": {
     "difficulty": "Medium",
     "number": 2,
