@@ -71,6 +71,12 @@
     "title": "String to Integer (atoi)",
     "topic": null
   },
+  "subarrays-distinct-element-sum-of-squares": {
+    "difficulty": "Medium",
+    "number": 2913,
+    "title": "Subarrays Distinct Element Sum Of Squares",
+    "topic": null
+  },
   "sum-of-squares-of-special-elements": {
     "difficulty": "Easy",
     "number": 2778,
