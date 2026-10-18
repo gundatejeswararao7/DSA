@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=3bf99dd1" width="100%" />
+<img src="./assets/progress.svg?v=37fc013d" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 5 |
-| 🟡 Medium | 16 |
+| 🟡 Medium | 17 |
 | 🔴 Hard | 1 |
-| **Total** | **22** |
+| **Total** | **23** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -157,6 +157,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 16 | [3sum Closet](https://leetcode.com/problems/3sum-closet/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/16_3Sum_Closet.py) |
 | 17 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-phone-number/) | String, Backtracking, Recursion | 🟡 Medium | [Python](./Solutions/17_Letter_Combinations_of_Phone_Number.py) |
 | 18 | [4Sum](https://leetcode.com/problems/4sum/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/18_4sum.py) |
+| 19 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end/) | Linked List, Two Passes | 🟡 Medium | [Python](./Solutions/19_Remove_nth_node_from_end.py) |
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Array, Hash Table, Matrix | 🟡 Medium | [Python](./Solutions/36_Valid_Sudoku.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |

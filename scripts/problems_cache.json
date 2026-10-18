@@ -77,6 +77,12 @@
     "title": "Palindrome Number",
     "topic": null
   },
+  "remove-nth-node-from-end": {
+    "difficulty": "Medium",
+    "number": 19,
+    "title": "Remove Nth Node From End of List",
+    "topic": null
+  },
   "remove-outetmost-parenthesis": {
     "difficulty": "Easy",
     "number": 1021,
