@@ -11,6 +11,12 @@
     "title": "3sum Closet",
     "topic": null
   },
+  "4sum": {
+    "difficulty": "Medium",
+    "number": 18,
+    "title": "4Sum",
+    "topic": "Array"
+  },
   "add-two-numbers": {
     "difficulty": "Medium",
     "number": 2,
