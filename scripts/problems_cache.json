@@ -59,6 +59,12 @@
     "title": "Median of Two Sorted Arrays",
     "topic": "Array"
   },
+  "merge-k-sorted-lists": {
+    "difficulty": "Hard",
+    "number": 23,
+    "title": "Merge k Sorted Lists",
+    "topic": "Linked List"
+  },
   "min-insertions-to-balance-parenthesis": {
     "difficulty": "Medium",
     "number": 1541,
