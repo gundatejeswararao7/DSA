@@ -131,6 +131,12 @@
     "title": "Sum of Squares of Special Elements ",
     "topic": "Array"
   },
+  "swap-nodes-in-pairs": {
+    "difficulty": "Medium",
+    "number": 24,
+    "title": "Swap Nodes in Pairs",
+    "topic": "Linked List"
+  },
   "two-sum": {
     "difficulty": "Easy",
     "number": 1,
