@@ -29,6 +29,12 @@
     "title": "Container With Most Water",
     "topic": "Array"
   },
+  "find-target-array-after-sorting": {
+    "difficulty": "Easy",
+    "number": 2089,
+    "title": "Find Target Indices After Sorting Array",
+    "topic": null
+  },
   "integer-to-roman": {
     "difficulty": "Medium",
     "number": 12,
