@@ -119,6 +119,12 @@
     "title": "Reverse Integer",
     "topic": "Math"
   },
+  "rotate-image": {
+    "difficulty": "Medium",
+    "number": 48,
+    "title": "Rotate Image",
+    "topic": "Array"
+  },
   "score-of-parentheses": {
     "difficulty": "Medium",
     "number": 856,

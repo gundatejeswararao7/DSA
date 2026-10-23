@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=11c7eb04" width="100%" />
+<img src="./assets/progress.svg?v=e99c887f" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 6 |
-| 🟡 Medium | 20 |
+| 🟡 Medium | 21 |
 | 🔴 Hard | 2 |
-| **Total** | **28** |
+| **Total** | **29** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -163,6 +163,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Array, Hash Table, Matrix | 🟡 Medium | [Python](./Solutions/36_Valid_Sudoku.py) |
 | 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | String, Math, Simulation | 🟡 Medium | [Python](./Solutions/43_Multiply_Strings.py) |
 | 45 | [Jump Game II](https://leetcode.com/problems/jump-game2/) | Array, Greedy | 🟡 Medium | [Python](./Solutions/45_Jump_Game2.py) |
+| 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/) | Array | 🟡 Medium | [Python](./Solutions/48_Rotate_Image.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
 | 921 | [Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) | Stack | 🟡 Medium | [Python](./Solutions/921_Minimum_Add_to_Make_Parentheses_Valid.py) |
