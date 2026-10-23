@@ -71,6 +71,12 @@
     "title": "Maximum Alternating Subsequence Sum",
     "topic": null
   },
+  "max-subarray": {
+    "difficulty": "Medium",
+    "number": 53,
+    "title": "Maximum Subarray",
+    "topic": null
+  },
   "median-of-two-sorted-arrays": {
     "difficulty": "Hard",
     "number": 4,
