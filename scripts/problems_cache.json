@@ -41,6 +41,12 @@
     "title": "Integer to Roman",
     "topic": "Hash Table"
   },
+  "jump-game2": {
+    "difficulty": "Medium",
+    "number": 45,
+    "title": "Jump Game II",
+    "topic": null
+  },
   "letter-combinations-of-phone-number": {
     "difficulty": "Medium",
     "number": 17,
