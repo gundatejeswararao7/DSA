@@ -35,6 +35,12 @@
     "title": "Find Target Indices After Sorting Array",
     "topic": null
   },
+  "group-anagrams": {
+    "difficulty": "Medium",
+    "number": 49,
+    "title": "Group Anagrams",
+    "topic": "Array"
+  },
   "integer-to-roman": {
     "difficulty": "Medium",
     "number": 12,
