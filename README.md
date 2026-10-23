@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=46f9ad12" width="100%" />
+<img src="./assets/progress.svg?v=2ce3285e" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 6 |
-| 🟡 Medium | 18 |
+| 🟡 Medium | 19 |
 | 🔴 Hard | 2 |
-| **Total** | **26** |
+| **Total** | **27** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -161,6 +161,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 23 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | Linked List, Divide and Conquer, Merge Two Sorted Lists | 🔴 Hard | [Python](./Solutions/23_merge_k_sorted_lists.py) |
 | 24 | [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | Linked List, Recursion, Pointer Manipulation | 🟡 Medium | [Python](./Solutions/24_swap_nodes_in_pairs.py) |
 | 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Array, Hash Table, Matrix | 🟡 Medium | [Python](./Solutions/36_Valid_Sudoku.py) |
+| 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | String, Math, Simulation | 🟡 Medium | [Python](./Solutions/43_Multiply_Strings.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
 | 921 | [Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) | Stack | 🟡 Medium | [Python](./Solutions/921_Minimum_Add_to_Make_Parentheses_Valid.py) |

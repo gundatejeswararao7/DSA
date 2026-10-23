@@ -83,6 +83,12 @@
     "title": "Minimum Add to Make Parentheses Valid",
     "topic": "String"
   },
+  "multiply-strings": {
+    "difficulty": "Medium",
+    "number": 43,
+    "title": "Multiply Strings",
+    "topic": "Math"
+  },
   "palindrome": {
     "difficulty": "Easy",
     "number": 9,
