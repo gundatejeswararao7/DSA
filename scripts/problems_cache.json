@@ -53,6 +53,12 @@
     "title": "Integer to Roman",
     "topic": "Hash Table"
   },
+  "jump-game": {
+    "difficulty": "Medium",
+    "number": 55,
+    "title": "Jump Game",
+    "topic": "Array"
+  },
   "jump-game2": {
     "difficulty": "Medium",
     "number": 45,
