@@ -29,6 +29,12 @@
     "title": "Container With Most Water",
     "topic": "Array"
   },
+  "count-days-spent-together": {
+    "difficulty": "Easy",
+    "number": 2409,
+    "title": "Count Days Spent Together",
+    "topic": "Math"
+  },
   "find-target-array-after-sorting": {
     "difficulty": "Easy",
     "number": 2089,
