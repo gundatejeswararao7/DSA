@@ -149,6 +149,12 @@
     "title": "Score of Parentheses",
     "topic": "String"
   },
+  "spiral-matrix": {
+    "difficulty": "Medium",
+    "number": 54,
+    "title": "Spiral Matrix",
+    "topic": "Array"
+  },
   "string-to-atoi": {
     "difficulty": "Medium",
     "number": 8,
