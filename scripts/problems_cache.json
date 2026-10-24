@@ -95,6 +95,12 @@
     "title": "Median of Two Sorted Arrays",
     "topic": "Array"
   },
+  "merge-intervals": {
+    "difficulty": "Medium",
+    "number": 56,
+    "title": "Merge Intervals",
+    "topic": "Array"
+  },
   "merge-k-sorted-lists": {
     "difficulty": "Hard",
     "number": 23,
