@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=3bccb9e8" width="100%" />
+<img src="./assets/progress.svg?v=a05c2f86" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 7 |
-| 🟡 Medium | 28 |
+| 🟡 Medium | 29 |
 | 🔴 Hard | 2 |
-| **Total** | **37** |
+| **Total** | **38** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -170,6 +170,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | Array, Greedy | 🟡 Medium | [Python](./Solutions/55_Jump_Game.py) |
 | 56 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | Array, Divide and Conquer, Sorting | 🟡 Medium | [Python](./Solutions/56_Merge_Intervals.py) |
 | 62 | [Unique Paths](https://leetcode.com/problems/unique-paths/) | Array, Dynamic Programming, Matrix | 🟡 Medium | [Python](./Solutions/62_Unique_paths.py) |
+| 64 | [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | Array, Dynamic Programming, Matrix | 🟡 Medium | [Python](./Solutions/64_minimum_path_sum.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
 | 921 | [Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) | Stack | 🟡 Medium | [Python](./Solutions/921_Minimum_Add_to_Make_Parentheses_Valid.py) |

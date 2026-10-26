@@ -125,6 +125,12 @@
     "title": "Minimum Add to Make Parentheses Valid",
     "topic": "String"
   },
+  "minimum-path-sum": {
+    "difficulty": "Medium",
+    "number": 64,
+    "title": "Minimum Path Sum",
+    "topic": "Array"
+  },
   "multiply-strings": {
     "difficulty": "Medium",
     "number": 43,
