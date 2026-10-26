@@ -203,6 +203,12 @@
     "title": "Two Sum",
     "topic": "Array"
   },
+  "unique-paths": {
+    "difficulty": "Medium",
+    "number": 62,
+    "title": "Unique Paths",
+    "topic": "Math"
+  },
   "valid-parenthesis-string": {
     "difficulty": "Medium",
     "number": 678,
