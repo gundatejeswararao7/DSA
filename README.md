@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=3aa7b362" width="100%" />
+<img src="./assets/progress.svg?v=bd7c54ab" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 7 |
-| 🟡 Medium | 26 |
+| 🟡 Medium | 27 |
 | 🔴 Hard | 2 |
-| **Total** | **35** |
+| **Total** | **36** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -178,6 +178,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 2409 | [Count Days Spent Together](https://leetcode.com/problems/count-days-spent-together/) | String, Simulation | 🟢 Easy | [Python](./Solutions/2409_Count_Days_Spent_Together.py) |
 | 2778 | [Sum of Squares of Special Elements ](https://leetcode.com/problems/sum-of-squares-of-special-elements/) | Array, Math | 🟢 Easy | [Python](./Solutions/2778_Sum_of_squares_of_special_elements.py) |
 | 2913 | [Subarrays Distinct Element Sum Of Squares](https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares/) | Array, Hash Set, Sliding Window | 🟡 Medium | [Python](./Solutions/2913_Subarrays_Distinct_Element_Sum_of_Squares.py) |
+| 3619 | [Count No Islands Divisible](https://leetcode.com/problems/count-no-islands-divisible/) | Array, Matrix, Graph, BFS, Connected Components | 🟡 Medium | [Python](./3619_Count_no_Islands_Divisible.py) |
 | 3727 | [Maximum Alternating Subsequence Sum](https://leetcode.com/problems/max-alternating-sum-squares/) | Array, Sorting, Greedy | 🟡 Medium | [Python](./Solutions/3727_Max_Alternating_Sum_Squares.py) |
 <!-- LOG:END -->
 

@@ -35,6 +35,12 @@
     "title": "Count Days Spent Together",
     "topic": "Math"
   },
+  "count-no-islands-divisible": {
+    "difficulty": "Medium",
+    "number": 3619,
+    "title": "Count No Islands Divisible",
+    "topic": null
+  },
   "find-target-array-after-sorting": {
     "difficulty": "Easy",
     "number": 2089,
