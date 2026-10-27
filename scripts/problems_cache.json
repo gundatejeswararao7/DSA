@@ -23,6 +23,12 @@
     "title": "Add Two Numbers",
     "topic": "Linked List"
   },
+  "climb-stairs": {
+    "difficulty": "Easy",
+    "number": 70,
+    "title": "Climbing Stairs",
+    "topic": null
+  },
   "container-with-most-water": {
     "difficulty": "Medium",
     "number": 11,
