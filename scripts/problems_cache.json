@@ -149,6 +149,12 @@
     "title": "Palindrome Number",
     "topic": null
   },
+  "plus-one": {
+    "difficulty": "Easy",
+    "number": 66,
+    "title": "Plus One",
+    "topic": "Array"
+  },
   "remove-nth-node-from-end": {
     "difficulty": "Medium",
     "number": 19,
