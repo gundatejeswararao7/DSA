@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=a05c2f86" width="100%" />
+<img src="./assets/progress.svg?v=dc6f469d" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
-| 🟢 Easy | 7 |
+| 🟢 Easy | 8 |
 | 🟡 Medium | 29 |
 | 🔴 Hard | 2 |
-| **Total** | **38** |
+| **Total** | **39** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -182,6 +182,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 2913 | [Subarrays Distinct Element Sum Of Squares](https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares/) | Array, Hash Set, Sliding Window | 🟡 Medium | [Python](./Solutions/2913_Subarrays_Distinct_Element_Sum_of_Squares.py) |
 | 3619 | [Count No Islands Divisible](https://leetcode.com/problems/count-no-islands-divisible/) | Array, Matrix, Graph, BFS, Connected Components | 🟡 Medium | [Python](./3619_Count_no_Islands_Divisible.py) |
 | 3727 | [Maximum Alternating Subsequence Sum](https://leetcode.com/problems/max-alternating-sum-squares/) | Array, Sorting, Greedy | 🟡 Medium | [Python](./Solutions/3727_Max_Alternating_Sum_Squares.py) |
+| 3963 | [Grid With One Path](https://leetcode.com/problems/grid-with-one-path/) | Array, Matrix, Simulation | 🟢 Easy | [Python](./Solutions/3963_Grid_with_one_path.py) |
 <!-- LOG:END -->
 
 ---

@@ -47,6 +47,12 @@
     "title": "Find Target Indices After Sorting Array",
     "topic": null
   },
+  "grid-with-one-path": {
+    "difficulty": "Easy",
+    "number": 3963,
+    "title": "Grid With One Path",
+    "topic": null
+  },
   "group-anagrams": {
     "difficulty": "Medium",
     "number": 49,
