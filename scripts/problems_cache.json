@@ -47,6 +47,12 @@
     "title": "Count No Islands Divisible",
     "topic": null
   },
+  "edit-distance": {
+    "difficulty": "Medium",
+    "number": 72,
+    "title": "Edit Distance",
+    "topic": "String"
+  },
   "find-target-array-after-sorting": {
     "difficulty": "Easy",
     "number": 2089,
