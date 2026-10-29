@@ -1,250 +1,372 @@
-<div align="center">
+#!/usr/bin/env python3
+"""Scan the repo for LeetCode solutions and regenerate the README stats.
 
-<img src="./assets/banner-header.svg" width="100%" />
+What it does on every run:
+  1. Finds solution files (any common language) anywhere in the repo.
+  2. Works out each problem's number, title, difficulty and topic.
+  3. Rewrites the Progress and Problem Log sections of README.md
+     (between the <!-- ...:START --> and <!-- ...:END --> markers).
+  4. Regenerates assets/progress.svg.
 
-<br/>
+Problem pictures are linked next to the solution when they are found in the
+problem's own folder (or an images/ subfolder), share the problem's file name
+(0856-score-of-parentheses.png), or are named in a header line "Image: path".
 
-![LeetCode](https://img.shields.io/badge/LEETCODE-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)
-![DSA](https://img.shields.io/badge/DATA_STRUCTURES-4f46e5?style=for-the-badge)
-![Algorithms](https://img.shields.io/badge/ALGORITHMS-0d9488?style=for-the-badge)
-![Problem Solving](https://img.shields.io/badge/PROBLEM_SOLVING-6f42c1?style=for-the-badge)
-![Interview Prep](https://img.shields.io/badge/INTERVIEW_PREP-e8590c?style=for-the-badge)
-![Status](https://img.shields.io/badge/STATUS-GROWING_DAILY-16a34a?style=for-the-badge)
+Difficulty is detected in this order:
+  1. A header comment in the file:   Difficulty: Medium
+  2. A LeetHub-style README.md in the problem folder (<h3>Medium</h3>)
+  3. A folder named Easy / Medium / Hard in the file's path
+  4. scripts/problems_cache.json (remembered from earlier runs)
+  5. The LeetCode website (looked up by the problem slug)
 
-<br/>
-
-[![LeetCode Profile](https://img.shields.io/badge/🧩_MY_LEETCODE-VIEW_PROFILE-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/)
-
-</div>
-
----
-
-## 📌 Overview
-
-**DSA** is my personal collection of **LeetCode solutions**. Every problem I solve lands here with
-clean, commented code, the idea behind the approach, and its **time and space complexity**. The
-goal is simple: build strong problem-solving instincts, one problem at a time, and keep a record
-I can revisit before interviews.
-
-> 💡 Each solution is written to be read, not just run. If you are learning DSA, follow the
-> approach notes first and try the problem yourself before looking at the code.
-
----
-
-## 🎯 What You'll Find Here
-
-<table>
-<tr><td width="33%" valign="top">
-
-### 🧠 Clear Approaches
-- Brute force first, then the optimized idea
-- Why the pattern works
-- Edge cases worth remembering
-
-</td><td width="33%" valign="top">
-
-### ⏱️ Complexity Analysis
-- Time complexity for every solution
-- Space complexity for every solution
-- Trade-offs between approaches
-
-</td><td width="34%" valign="top">
-
-### 🗂️ Organized by Topic
-- Arrays, Strings, Linked Lists
-- Trees, Graphs, Heaps
-- DP, Greedy, Backtracking
-
-</td></tr>
-</table>
-
----
-
-## 🧩 Topics Covered
-
-<img src="./assets/topics.svg" width="100%" />
-
-Problems are grouped by the data structure or technique they train, so it is easy to practice one
-topic at a time.
-
----
-
-## 🔄 My Problem-Solving Approach
-
-<img src="./assets/approach-flow.svg" width="100%" />
-
-I never jump straight to code. I make sure I understand the problem, find a correct baseline,
-then look for the pattern that makes it faster. Only then do I write the final solution and
-analyze its cost.
-
----
-
-## ⏱️ Big-O Cheat Sheet
-
-<img src="./assets/complexity.svg" width="100%" />
-
-A quick reminder of how common complexities compare. Every solution here states its time and
-space complexity so you can see which trade-offs were made.
-
----
-
-## 📊 Progress Tracker
-
-<img src="./assets/progress.svg?v=fdc4e487" width="100%" />
-
-<!-- PROGRESS:START -->
-| Difficulty | Solved |
-|---|---|
-| 🟢 Easy | 10 |
-| 🟡 Medium | 32 |
-| 🔴 Hard | 5 |
-| **Total** | **47** |
-<!-- PROGRESS:END -->
-
-> 🤖 These numbers update automatically every time I push a new solution.
-
----
-
-## 🧾 Solution Format
-
-Every solution file is named `number-problem-name.ext` (for example `0856-score-of-parentheses.py`)
-and starts with the same header, so it is quick to scan:
-
-```python
+Run locally:  python scripts/update_readme.py            (add --offline to skip web lookups)
 """
-856. Score of Parentheses
-Difficulty: Medium
-Topic: Stack
-Link: https://leetcode.com/problems/score-of-parentheses/
+import hashlib
+import json
+import re
+import sys
+import urllib.request
+from pathlib import Path
+from urllib.parse import quote
 
-Approach:
-    The core idea in a few lines.
+ROOT = Path(__file__).resolve().parent.parent
+README = ROOT / "README.md"
+CACHE = ROOT / "scripts" / "problems_cache.json"
+PROGRESS_SVG = ROOT / "assets" / "progress.svg"
 
-Complexity:
-    Time:  O(n)
-    Space: O(n)
+CODE_EXT = {
+    ".py", ".java", ".cpp", ".cc", ".c", ".cs", ".js", ".ts", ".go", ".rs",
+    ".kt", ".swift", ".rb", ".php", ".scala", ".sql", ".dart", ".r",
+}
+SKIP_DIRS = {".git", ".github", "assets", "scripts", "node_modules", "venv", ".venv", "__pycache__"}
+DIFFS = ("Easy", "Medium", "Hard")
+LANG = {
+    ".py": "Python", ".java": "Java", ".cpp": "C++", ".cc": "C++", ".c": "C",
+    ".cs": "C#", ".js": "JavaScript", ".ts": "TypeScript", ".go": "Go",
+    ".rs": "Rust", ".kt": "Kotlin", ".swift": "Swift", ".rb": "Ruby",
+    ".php": "PHP", ".scala": "Scala", ".sql": "SQL", ".dart": "Dart", ".r": "R",
+}
+IMG_EXT = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"}
+# folder names that only group files and are never used as a topic
+GENERIC_DIRS = {"solutions", "solution", "src", "code", "leetcode", "problems"}
+ICON = {"Easy": "🟢", "Medium": "🟡", "Hard": "🔴"}
+OFFLINE = "--offline" in sys.argv
+
+
+def slugify(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def pretty(slug):
+    return " ".join(w.capitalize() for w in slug.split("-"))
+
+
+def identify(path):
+    """Return (number or None, slug) from the file name or its folder name."""
+    for name in (path.stem, path.parent.name):
+        m = re.match(r"^\s*(\d+)\s*[-_. ]+\s*(.+?)\s*$", name)
+        if m:
+            return int(m.group(1)), slugify(m.group(2))
+    return None, slugify(path.stem)
+
+
+def read_head(path, lines=40):
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            return "".join(next(f, "") for _ in range(lines))
+    except OSError:
+        return ""
+
+
+def find_images(path, slug, head):
+    """Images that belong to this solution.
+
+    - Folder-per-problem layout: every image inside the problem folder
+      (including an images/ subfolder) belongs to it.
+    - Flat layout: images next to the file whose name starts with the
+      problem name, e.g. 0856-score-of-parentheses.png or ...-2.png
+    - Any layout: a header line   Image: ./path/to/picture.png
+    """
+    found = set()
+    parent = path.parent
+    folder_name = re.sub(r"^\d+[-_. ]+", "", parent.name)
+    own_folder = parent != ROOT and slugify(folder_name) == slug
+    if own_folder:
+        for img in parent.rglob("*"):
+            if img.is_file() and img.suffix.lower() in IMG_EXT:
+                found.add(img)
+    else:
+        for d in (parent, parent / "images", parent / "img"):
+            if not d.is_dir():
+                continue
+            for img in d.iterdir():
+                stem = re.sub(r"^\d+[-_. ]+", "", img.stem)
+                if img.is_file() and img.suffix.lower() in IMG_EXT and slugify(stem).startswith(slug):
+                    found.add(img)
+    for m in re.finditer(r"(?im)^\W*image\s*[:\-]\s*(\S+)\s*$", head):
+        img = (parent / m.group(1)).resolve()
+        if img.is_file() and img.suffix.lower() in IMG_EXT and ROOT in img.parents:
+            found.add(img)
+    return found
+
+
+def fetch_leetcode(slug):
+    if OFFLINE:
+        return None
+    query = {
+        "query": "query q($s:String!){question(titleSlug:$s){questionFrontendId title difficulty topicTags{name}}}",
+        "variables": {"s": slug},
+    }
+    req = urllib.request.Request(
+        "https://leetcode.com/graphql",
+        data=json.dumps(query).encode(),
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "Mozilla/5.0",
+            "Referer": f"https://leetcode.com/problems/{slug}/",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            q = json.load(resp)["data"]["question"]
+        if not q:
+            return None
+        return {
+            "number": int(q["questionFrontendId"]),
+            "title": q["title"],
+            "difficulty": q["difficulty"],
+            "topic": (q["topicTags"][0]["name"] if q["topicTags"] else None),
+        }
+    except Exception as exc:  # network blocked, rate limited, bad slug...
+        print(f"  ! lookup failed for {slug}: {exc}")
+        return None
+
+
+def collect():
+    """Group solution files by problem slug."""
+    problems = {}
+    for path in sorted(ROOT.rglob("*")):
+        rel = path.relative_to(ROOT)
+        if not path.is_file() or path.suffix.lower() not in CODE_EXT:
+            continue
+        if any(part in SKIP_DIRS or part.startswith(".") for part in rel.parts[:-1]):
+            continue
+        number, slug = identify(path)
+        if not slug:
+            continue
+        p = problems.setdefault(slug, {"slug": slug, "number": number, "files": [], "hints": {}, "images": set()})
+        p["number"] = p["number"] or number
+        p["files"].append(rel)
+
+        # difficulty hint: header comment inside the file
+        head = read_head(path)
+        m = re.search(r"(?i)difficulty\s*[:\-]\s*(easy|medium|hard)", head)
+        if m:
+            p["hints"]["difficulty"] = m.group(1).capitalize()
+        for img in find_images(path, slug, head):
+            p["images"].add(img.relative_to(ROOT))
+        # title hint: a header line like "856. Score of Parentheses"
+        m = re.search(r"(?m)^\W*(\d+)\.\s+([A-Za-z][^\n]*?)\s*$", head)
+        if m:
+            p["number"] = p["number"] or int(m.group(1))
+            p["hints"]["title"] = m.group(2)
+        # topic hint: "Topic: Stack" in the header comment
+        m = re.search(r"(?im)^\W*topic\s*[:\-]\s*(\S.*?)\s*$", head)
+        if m:
+            p["hints"]["topic"] = m.group(1)
+        # difficulty hint: Easy/Medium/Hard folder in the path
+        for part in rel.parts[:-1]:
+            if part.capitalize() in DIFFS:
+                p["hints"].setdefault("difficulty", part.capitalize())
+        # topic hint: first folder that is not a difficulty or a numbered problem folder
+        for part in rel.parts[:-1]:
+            if (part.capitalize() in DIFFS or part.lower() in GENERIC_DIRS
+                    or re.match(r"^\d+[-_. ]", part)):
+                continue
+            p["hints"].setdefault("topic", pretty(slugify(part)))
+            break
+
+        # LeetHub-style README in the problem folder
+        folder_readme = path.parent / "README.md"
+        if path.parent != ROOT and folder_readme.exists():
+            text = read_head(folder_readme, 20)
+            m = re.search(r"<h3>\s*(Easy|Medium|Hard)\s*</h3>", text, re.I)
+            if m:
+                p["hints"]["difficulty"] = m.group(1).capitalize()
+            m = re.search(r"<h2>.*?>\s*(\d+)\.\s*([^<]+?)\s*</a>", text, re.S)
+            if m:
+                p["number"] = p["number"] or int(m.group(1))
+                p["hints"].setdefault("title", m.group(2))
+    return problems
+
+
+def resolve(problems, cache):
+    for slug, p in problems.items():
+        info = dict(cache.get(slug, {}))
+        hints = p["hints"]
+        # fill gaps from the web only if something is missing
+        if not (info.get("difficulty") or hints.get("difficulty")) or not info.get("title"):
+            fetched = fetch_leetcode(slug)
+            if fetched:
+                info.update({k: v for k, v in fetched.items() if v})
+        p["difficulty"] = hints.get("difficulty") or info.get("difficulty") or "Unknown"
+        p["title"] = info.get("title") or hints.get("title") or pretty(slug)
+        p["number"] = p["number"] or info.get("number")
+        p["topic"] = hints.get("topic") or info.get("topic") or "—"
+        cache[slug] = {
+            "number": p["number"],
+            "title": p["title"],
+            "difficulty": p["difficulty"] if p["difficulty"] != "Unknown" else None,
+            "topic": info.get("topic"),
+        }
+    return problems
+
+
+def solution_links(files, images=()):
+    links = []
+    for f in sorted(files, key=str):
+        label = LANG.get(f.suffix.lower(), f.suffix.lstrip("."))
+        links.append(f"[{label}](./{quote(f.as_posix())})")
+    images = sorted(images, key=str)
+    for i, img in enumerate(images, 1):
+        label = "🖼️ Image" if len(images) == 1 else f"🖼️ Image {i}"
+        links.append(f"[{label}](./{quote(img.as_posix())})")
+    return " · ".join(links)
+
+
+def render_progress(counts, total):
+    cards = [
+        '<div align="center">',
+        '<table>',
+        '<tr>',
+    ]
+    colors = {
+        'Easy': '#dcfce7',
+        'Medium': '#fef3c7',
+        'Hard': '#fee2e2',
+        'Unknown': '#e2e8f0',
+        'Total': '#dbeafe',
+    }
+    for difficulty in DIFFS:
+        cards.append(
+            f'<td width="25%" align="center" bgcolor="{colors[difficulty]}">'
+            f'<b>{ICON[difficulty]} {difficulty}</b><br>'
+            f'<font size="5"><b>{counts[difficulty]}</b></font></td>'
+        )
+    if counts["Unknown"]:
+        cards.append(
+            f'<td width="25%" align="center" bgcolor="{colors["Unknown"]}">'
+            f'<b>⚪ Unclassified</b><br>'
+            f'<font size="5"><b>{counts["Unknown"]}</b></font></td>'
+        )
+    cards.append(
+        f'<td width="25%" align="center" bgcolor="{colors["Total"]}">'
+        f'<b>📌 Total</b><br>'
+        f'<font size="5"><b>{total}</b></font></td>'
+    )
+    cards.extend(['</tr>', '</table>', '</div>'])
+    return "\n".join(cards)
+
+
+def render_log(problems):
+    def sort_key(p):
+        return (p["number"] is None, p["number"] or 0, p["title"])
+
+    rows = [
+        "| # | Problem | Topic | Difficulty | Solution |",
+        "|---|---|---|---|---|",
+    ]
+    for p in sorted(problems.values(), key=sort_key):
+        num = p["number"] if p["number"] is not None else "–"
+        link = f"[{p['title']}](https://leetcode.com/problems/{p['slug']}/)"
+        diff = f"{ICON.get(p['difficulty'], '⚪')} {p['difficulty']}"
+        rows.append(f"| {num} | {link} | {p['topic']} | {diff} | {solution_links(p['files'], p['images'])} |")
+    if len(rows) == 2:
+        rows.append("| – | _No solutions yet_ | | | |")
+    return "\n".join(rows)
+
+
+def render_svg(counts, total):
+    colors = {"Easy": "#22c55e", "Medium": "#f59e0b", "Hard": "#ef4444"}
+    bar_x, bar_w = 60, 1080
+    parts, x = [], bar_x
+    solved = sum(counts[d] for d in DIFFS)
+    if solved:
+        for i, d in enumerate(DIFFS):
+            w = bar_w * counts[d] / solved
+            if w > 0:
+                parts.append(f'<rect x="{x:.1f}" y="92" width="{w:.1f}" height="26" fill="{colors[d]}"/>')
+                x += w
+    bar = "\n  ".join(parts)
+    legend = []
+    for i, d in enumerate(DIFFS):
+        lx = 60 + i * 260
+        legend.append(
+            f'<circle cx="{lx + 8}" cy="152" r="8" fill="{colors[d]}"/>'
+            f'<text x="{lx + 26}" y="158" font-size="18" fill="#e0e7ff">{d}: <tspan font-weight="700" fill="#ffffff">{counts[d]}</tspan></text>'
+        )
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="190" viewBox="0 0 1200 190">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <clipPath id="round"><rect x="{bar_x}" y="92" width="{bar_w}" height="26" rx="13"/></clipPath>
+  </defs>
+  <rect width="1200" height="190" rx="20" fill="url(#bg)"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="60" y="56" font-size="24" font-weight="700" fill="#e0e7ff">Progress</text>
+    <text x="1140" y="56" font-size="24" font-weight="800" fill="#5eead4" text-anchor="end">{total} solved</text>
+    <rect x="{bar_x}" y="92" width="{bar_w}" height="26" rx="13" fill="#ffffff" fill-opacity="0.10"/>
+    <g clip-path="url(#round)">
+  {bar}
+    </g>
+    {''.join(legend)}
+  </g>
+</svg>
 """
 
-class Solution:
-    ...
-```
 
----
+def replace_block(text, name, body):
+    pattern = re.compile(rf"(<!-- {name}:START -->)(.*?)(<!-- {name}:END -->)", re.S)
+    if not pattern.search(text):
+        print(f"  ! marker {name} not found in README.md, skipped")
+        return text
+    return pattern.sub(lambda m: f"{m.group(1)}\n{body}\n{m.group(3)}", text)
 
-## 🤖 Self-Updating README
 
-A GitHub Action runs on every push. It reads the header of each solution file, then rewrites the
-**Progress Tracker** and the **Problem Log** automatically, including links to the code and to any
-problem images. Add a solution, push, and the README updates itself.
+def main():
+    cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
+    problems = resolve(collect(), cache)
 
----
+    counts = {d: 0 for d in DIFFS}
+    counts["Unknown"] = 0
+    for p in problems.values():
+        counts[p["difficulty"] if p["difficulty"] in DIFFS else "Unknown"] += 1
+    total = len(problems)
 
-## 🗒️ Problem Log
+    text = README.read_text(encoding="utf-8")
+    text = replace_block(text, "PROGRESS", render_progress(counts, total))
+    text = replace_block(text, "LOG", render_log(problems))
+    README.write_text(text, encoding="utf-8")
 
-<!-- LOG:START -->
-| # | Problem | Topic | Difficulty | Solution |
-|---|---|---|---|---|
-| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | Junior, Array, Hash Table | 🟢 Easy | [Python](./Solutions/1_Two_Sum.py) |
-| 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | Linked List, Math | 🟡 Medium | [Python](./Solutions/2_Add_Two_Numbers.py) |
-| 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | Array, Sorting | 🔴 Hard | [Python](./Solutions/4_Median_of_Two_Sorted_Arrays.py) |
-| 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) | Math | 🟡 Medium | [Python](./Solutions/7_Reverse_Integer.py) |
-| 8 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-atoi/) | String | 🟡 Medium | [Python](./Solutions/8_String_to_Atoi.py) |
-| 9 | [Palindrome Number](https://leetcode.com/problems/palindrome/) | Math, Two Pointers, String | 🟢 Easy | [Python](./Solutions/9_Palindrome.py) |
-| 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | Array, Two Pointers, Greedy | 🟡 Medium | [Python](./Solutions/11_Container_with_most_water.py) |
-| 12 | [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) | Hash Table, Math, String, Greedy | 🟡 Medium | [Python](./Solutions/12_Integer_to_Roman.py) |
-| 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Array, String | 🟢 Easy | [Python](./Solutions/14_Longest_Common_Prefix.py) |
-| 15 | [3Sum](https://leetcode.com/problems/3sum/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/15_3Sum.py) |
-| 16 | [3sum Closet](https://leetcode.com/problems/3sum-closet/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/16_3Sum_Closet.py) |
-| 17 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-phone-number/) | String, Backtracking, Recursion | 🟡 Medium | [Python](./Solutions/17_Letter_Combinations_of_Phone_Number.py) |
-| 18 | [4Sum](https://leetcode.com/problems/4sum/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/18_4sum.py) |
-| 19 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end/) | Linked List, Two Passes | 🟡 Medium | [Python](./Solutions/19_Remove_nth_node_from_end.py) |
-| 23 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | Linked List, Divide and Conquer, Merge Two Sorted Lists | 🔴 Hard | [Python](./Solutions/23_merge_k_sorted_lists.py) |
-| 24 | [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | Linked List, Recursion, Pointer Manipulation | 🟡 Medium | [Python](./Solutions/24_swap_nodes_in_pairs.py) |
-| 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Array, Hash Table, Matrix | 🟡 Medium | [Python](./Solutions/36_Valid_Sudoku.py) |
-| 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | String, Math, Simulation | 🟡 Medium | [Python](./Solutions/43_Multiply_Strings.py) |
-| 45 | [Jump Game II](https://leetcode.com/problems/jump-game2/) | Array, Greedy | 🟡 Medium | [Python](./Solutions/45_Jump_Game2.py) |
-| 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/) | Array | 🟡 Medium | [Python](./Solutions/48_Rotate_Image.py) |
-| 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | Array, Hash Table, String, Sorting | 🟡 Medium | [Python](./Solutions/49_Group_Anagrams.py) |
-| 53 | [Maximum Subarray](https://leetcode.com/problems/max-subarray/) | Array, Dynamic Programming, Greedy, Kadane's Algorithm | 🟡 Medium | [Python](./Solutions/53_Max_Subarray.py) |
-| 54 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | Array, Matrix, Simulation | 🟡 Medium | [Python](./Solutions/54_Spiral_matrix.py) |
-| 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | Array, Greedy | 🟡 Medium | [Python](./Solutions/55_Jump_Game.py) |
-| 56 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | Array, Divide and Conquer, Sorting | 🟡 Medium | [Python](./Solutions/56_Merge_Intervals.py) |
-| 62 | [Unique Paths](https://leetcode.com/problems/unique-paths/) | Array, Dynamic Programming, Matrix | 🟡 Medium | [Python](./Solutions/62_Unique_paths.py) |
-| 64 | [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | Array, Dynamic Programming, Matrix | 🟡 Medium | [Python](./Solutions/64_minimum_path_sum.py) |
-| 66 | [Plus One](https://leetcode.com/problems/plus-one/) | Array, Math | 🟢 Easy | [Python](./Solutions/66_plus_one.py) |
-| 70 | [Climbing Stairs](https://leetcode.com/problems/climb-stairs/) | Dynamic Programming, Recursion, Memoization | 🟢 Easy | [Python](./Solutions/70_Climb_stairs.py) |
-| 71 | [Simplify Path](https://leetcode.com/problems/simplify-path/) | String, Stack | 🟡 Medium | [Python](./Solutions/71_Simplify_path.py) |
-| 72 | [Edit Distance](https://leetcode.com/problems/edit-distance/) | String, Dynamic Programming | 🟡 Medium | [Python](./Solutions/72_Edit_Distance.py) |
-| 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zero/) | Array, Matrix | 🟡 Medium | [Python](./Solutions/73_Set_matrix_zero.py) |
-| 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
-| 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
-| 921 | [Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) | Stack | 🟡 Medium | [Python](./Solutions/921_Minimum_Add_to_Make_Parentheses_Valid.py) |
-| 1021 | [Remove Outetmost Parenthesis](https://leetcode.com/problems/remove-outetmost-parenthesis/) | Stack, String | 🟢 Easy | [Python](./Solutions/1021_Remove_OutetMost_Parenthesis.py) |
-| 1541 | [Minimum Insertions to Balance a Parentheses String](https://leetcode.com/problems/min-insertions-to-balance-parenthesis/) | Stack, Greedy | 🟡 Medium | [Python](./Solutions/1541_Min_Insertions_To_Balance_Parenthesis.py) |
-| 2089 | [Find Target Indices After Sorting Array](https://leetcode.com/problems/find-target-array-after-sorting/) | Array, Counting, Sorting | 🟢 Easy | [Python](./Solutions/2089_find_target_array_after_sorting.py) |
-| 2267 | [Check if There Is a Valid Parentheses String Path](https://leetcode.com/problems/check-valid-str-path/) | Array, Dynamic Programming, Breadth-First Search, Matrix | 🔴 Hard | [Python](./Solutions/2267_check_valid_%28%29_str_path.py) |
-| 2409 | [Count Days Spent Together](https://leetcode.com/problems/count-days-spent-together/) | String, Simulation | 🟢 Easy | [Python](./Solutions/2409_Count_Days_Spent_Together.py) |
-| 2778 | [Sum of Squares of Special Elements ](https://leetcode.com/problems/sum-of-squares-of-special-elements/) | Array, Math | 🟢 Easy | [Python](./Solutions/2778_Sum_of_squares_of_special_elements.py) |
-| 2913 | [Subarrays Distinct Element Sum Of Squares](https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares/) | Array, Hash Set, Sliding Window | 🟡 Medium | [Python](./Solutions/2913_Subarrays_Distinct_Element_Sum_of_Squares.py) |
-| 3414 | [Max Score Non Overlap](https://leetcode.com/problems/max-score-non-overlap/) | Array, Dynamic Programming, Sorting, Binary Search | 🔴 Hard | [Python](./Solutions/3414_Max_score_non_overlap.py) |
-| 3464 | [Max Dist Bw Two Point In Squ](https://leetcode.com/problems/max-dist-bw-two-point-in-squ/) | Array, Sorting, Binary Search, Greedy | 🔴 Hard | [Python](./Solutions/3464_Max_dist_bw_two_point_in_squ.py) |
-| 3619 | [Count No Islands Divisible](https://leetcode.com/problems/count-no-islands-divisible/) | Array, Matrix, Graph, BFS, Connected Components | 🟡 Medium | [Python](./3619_Count_no_Islands_Divisible.py) |
-| 3727 | [Maximum Alternating Subsequence Sum](https://leetcode.com/problems/max-alternating-sum-squares/) | Array, Sorting, Greedy | 🟡 Medium | [Python](./Solutions/3727_Max_Alternating_Sum_Squares.py) |
-| 3963 | [Grid With One Path](https://leetcode.com/problems/grid-with-one-path/) | Array, Matrix, Simulation | 🟢 Easy | [Python](./Solutions/3963_Grid_with_one_path.py) |
-<!-- LOG:END -->
+    PROGRESS_SVG.parent.mkdir(exist_ok=True)
+    svg = render_svg(counts, total)
+    PROGRESS_SVG.write_text(svg, encoding="utf-8")
 
----
+    # GitHub and browsers cache README images, so a changed progress.svg can look stale.
+    # A version tag that changes with the picture forces a fresh download.
+    version = hashlib.md5(svg.encode("utf-8")).hexdigest()[:8]
+    text = re.sub(r'src="\./assets/progress\.svg[^"]*"',
+                  f'src="./assets/progress.svg?v={version}"', text)
+    README.write_text(text, encoding="utf-8")
+    CACHE.write_text(json.dumps(cache, indent=2, sort_keys=True), encoding="utf-8")
 
-## 🚀 Getting Started
+    print(f"Updated README: {total} problems "
+          f"(Easy {counts['Easy']}, Medium {counts['Medium']}, Hard {counts['Hard']}, unclassified {counts['Unknown']})")
 
-```bash
-git clone https://github.com/gundatejeswararao7/DSA.git
-cd DSA
-```
 
-Open any topic, pick a problem, and read the approach before the code. To run a solution, use the
-compiler or interpreter for the language it is written in.
+if __name__ == "__main__":
+    main()
 
----
-
-## 🌱 Contributing
-
-Found a bug or a cleaner approach? Suggestions are welcome.
-
-```bash
-git checkout -b improve/problem-name
-# make your changes and test them
-git add .
-git commit -m "Improve solution for problem-name"
-git push origin improve/problem-name
-```
-
-Then open a pull request.
-
----
-
-## 📄 License
-
-This repository is for learning and practice. Add an open-source license if you want others to
-reuse the code.
-
----
-
-<div align="center">
-
-## 📫 Author
-
-**Gundatejeswararao7**
-
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gundatejeswararao7)
-[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/)
-
-## ⭐ Support
-
-If this repo helps your prep, consider giving it a star.
-
-<br/>
-
-<img src="./assets/banner-footer.svg" width="100%" />
-
-</div>
