@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=d70c3cd8" width="100%" />
+<img src="./assets/progress.svg?v=2f105e71" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
 | 🟢 Easy | 10 |
 | 🟡 Medium | 32 |
-| 🔴 Hard | 3 |
-| **Total** | **45** |
+| 🔴 Hard | 4 |
+| **Total** | **46** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -185,6 +185,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 2409 | [Count Days Spent Together](https://leetcode.com/problems/count-days-spent-together/) | String, Simulation | 🟢 Easy | [Python](./Solutions/2409_Count_Days_Spent_Together.py) |
 | 2778 | [Sum of Squares of Special Elements ](https://leetcode.com/problems/sum-of-squares-of-special-elements/) | Array, Math | 🟢 Easy | [Python](./Solutions/2778_Sum_of_squares_of_special_elements.py) |
 | 2913 | [Subarrays Distinct Element Sum Of Squares](https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares/) | Array, Hash Set, Sliding Window | 🟡 Medium | [Python](./Solutions/2913_Subarrays_Distinct_Element_Sum_of_Squares.py) |
+| 3414 | [Max Score Non Overlap](https://leetcode.com/problems/max-score-non-overlap/) | Array, Dynamic Programming, Sorting, Binary Search | 🔴 Hard | [Python](./Solutions/3414_Max_score_non_overlap.py) |
 | 3464 | [Max Dist Bw Two Point In Squ](https://leetcode.com/problems/max-dist-bw-two-point-in-squ/) | Array, Sorting, Binary Search, Greedy | 🔴 Hard | [Python](./Solutions/3464_Max_dist_bw_two_point_in_squ.py) |
 | 3619 | [Count No Islands Divisible](https://leetcode.com/problems/count-no-islands-divisible/) | Array, Matrix, Graph, BFS, Connected Components | 🟡 Medium | [Python](./3619_Count_no_Islands_Divisible.py) |
 | 3727 | [Maximum Alternating Subsequence Sum](https://leetcode.com/problems/max-alternating-sum-squares/) | Array, Sorting, Greedy | 🟡 Medium | [Python](./Solutions/3727_Max_Alternating_Sum_Squares.py) |

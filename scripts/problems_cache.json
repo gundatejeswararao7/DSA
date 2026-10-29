@@ -113,6 +113,12 @@
     "title": "Max Dist Bw Two Point In Squ",
     "topic": null
   },
+  "max-score-non-overlap": {
+    "difficulty": "Hard",
+    "number": 3414,
+    "title": "Max Score Non Overlap",
+    "topic": null
+  },
   "max-subarray": {
     "difficulty": "Medium",
     "number": 53,
