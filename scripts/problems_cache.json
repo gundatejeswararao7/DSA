@@ -107,6 +107,12 @@
     "title": "Maximum Alternating Subsequence Sum",
     "topic": null
   },
+  "max-dist-bw-two-point-in-squ": {
+    "difficulty": "Hard",
+    "number": 3464,
+    "title": "Max Dist Bw Two Point In Squ",
+    "topic": null
+  },
   "max-subarray": {
     "difficulty": "Medium",
     "number": 53,
