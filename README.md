@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scan the repo for LeetCode solutions and regenerate the README stats.
+"""Scan the repo for LeetCode solutions and regenerate the README statss.
 
 What it does on every run:
   1. Finds solution files (any common language) anywhere in the repo.
