@@ -90,15 +90,15 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg" width="100%" />
+<img src="./assets/progress.svg?v=ffaca05c" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
 |---|---|
-| 🟢 Easy | 0 |
-| 🟡 Medium | 0 |
-| 🔴 Hard | 0 |
-| **Total** | **0** |
+| 🟢 Easy | 10 |
+| 🟡 Medium | 31 |
+| 🔴 Hard | 5 |
+| **Total** | **46** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -144,7 +144,52 @@ problem images. Add a solution, push, and the README updates itself.
 <!-- LOG:START -->
 | # | Problem | Topic | Difficulty | Solution |
 |---|---|---|---|---|
-| – | _No solutions yet_ | | | |
+| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | Junior, Array, Hash Table | 🟢 Easy | [Python](./Solutions/1_Two_Sum.py) |
+| 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | Linked List, Math | 🟡 Medium | [Python](./Solutions/2_Add_Two_Numbers.py) |
+| 4 | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | Array, Sorting | 🔴 Hard | [Python](./Solutions/4_Median_of_Two_Sorted_Arrays.py) |
+| 7 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) | Math | 🟡 Medium | [Python](./Solutions/7_Reverse_Integer.py) |
+| 8 | [String to Integer (atoi)](https://leetcode.com/problems/string-to-atoi/) | String | 🟡 Medium | [Python](./Solutions/8_String_to_Atoi.py) |
+| 9 | [Palindrome Number](https://leetcode.com/problems/palindrome/) | Math, Two Pointers, String | 🟢 Easy | [Python](./Solutions/9_Palindrome.py) |
+| 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | Array, Two Pointers, Greedy | 🟡 Medium | [Python](./Solutions/11_Container_with_most_water.py) |
+| 12 | [Integer to Roman](https://leetcode.com/problems/integer-to-roman/) | Hash Table, Math, String, Greedy | 🟡 Medium | [Python](./Solutions/12_Integer_to_Roman.py) |
+| 14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Array, String | 🟢 Easy | [Python](./Solutions/14_Longest_Common_Prefix.py) |
+| 15 | [3Sum](https://leetcode.com/problems/3sum/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/15_3Sum.py) |
+| 16 | [3sum Closet](https://leetcode.com/problems/3sum-closet/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/16_3Sum_Closet.py) |
+| 17 | [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-phone-number/) | String, Backtracking, Recursion | 🟡 Medium | [Python](./Solutions/17_Letter_Combinations_of_Phone_Number.py) |
+| 18 | [4Sum](https://leetcode.com/problems/4sum/) | Array, Two Pointers, Sorting | 🟡 Medium | [Python](./Solutions/18_4sum.py) |
+| 19 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end/) | Linked List, Two Passes | 🟡 Medium | [Python](./Solutions/19_Remove_nth_node_from_end.py) |
+| 23 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | Linked List, Divide and Conquer, Merge Two Sorted Lists | 🔴 Hard | [Python](./Solutions/23_merge_k_sorted_lists.py) |
+| 24 | [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | Linked List, Recursion, Pointer Manipulation | 🟡 Medium | [Python](./Solutions/24_swap_nodes_in_pairs.py) |
+| 36 | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | Array, Hash Table, Matrix | 🟡 Medium | [Python](./Solutions/36_Valid_Sudoku.py) |
+| 43 | [Multiply Strings](https://leetcode.com/problems/multiply-strings/) | String, Math, Simulation | 🟡 Medium | [Python](./Solutions/43_Multiply_Strings.py) |
+| 45 | [Jump Game II](https://leetcode.com/problems/jump-game2/) | Array, Greedy | 🟡 Medium | [Python](./Solutions/45_Jump_Game2.py) |
+| 48 | [Rotate Image](https://leetcode.com/problems/rotate-image/) | Array | 🟡 Medium | [Python](./Solutions/48_Rotate_Image.py) |
+| 49 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | Array, Hash Table, String, Sorting | 🟡 Medium | [Python](./Solutions/49_Group_Anagrams.py) |
+| 53 | [Maximum Subarray](https://leetcode.com/problems/max-subarray/) | Array, Dynamic Programming, Greedy, Kadane's Algorithm | 🟡 Medium | [Python](./Solutions/53_Max_Subarray.py) |
+| 54 | [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) | Array, Matrix, Simulation | 🟡 Medium | [Python](./Solutions/54_Spiral_matrix.py) |
+| 55 | [Jump Game](https://leetcode.com/problems/jump-game/) | Array, Greedy | 🟡 Medium | [Python](./Solutions/55_Jump_Game.py) |
+| 56 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/) | Array, Divide and Conquer, Sorting | 🟡 Medium | [Python](./Solutions/56_Merge_Intervals.py) |
+| 62 | [Unique Paths](https://leetcode.com/problems/unique-paths/) | Array, Dynamic Programming, Matrix | 🟡 Medium | [Python](./Solutions/62_Unique_paths.py) |
+| 64 | [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) | Array, Dynamic Programming, Matrix | 🟡 Medium | [Python](./Solutions/64_minimum_path_sum.py) |
+| 66 | [Plus One](https://leetcode.com/problems/plus-one/) | Array, Math | 🟢 Easy | [Python](./Solutions/66_plus_one.py) |
+| 70 | [Climbing Stairs](https://leetcode.com/problems/climb-stairs/) | Dynamic Programming, Recursion, Memoization | 🟢 Easy | [Python](./Solutions/70_Climb_stairs.py) |
+| 71 | [Simplify Path](https://leetcode.com/problems/simplify-path/) | String, Stack | 🟡 Medium | [Python](./Solutions/71_Simplify_path.py) |
+| 72 | [Edit Distance](https://leetcode.com/problems/edit-distance/) | String, Dynamic Programming | 🟡 Medium | [Python](./Solutions/72_Edit_Distance.py) |
+| 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zero/) | Array, Matrix | 🟡 Medium | [Python](./Solutions/73_Set_matrix_zero.py) |
+| 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
+| 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
+| 921 | [Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) | Stack | 🟡 Medium | [Python](./Solutions/921_Minimum_Add_to_Make_Parentheses_Valid.py) |
+| 1021 | [Remove Outetmost Parenthesis](https://leetcode.com/problems/remove-outetmost-parenthesis/) | Stack, String | 🟢 Easy | [Python](./Solutions/1021_Remove_OutetMost_Parenthesis.py) |
+| 1541 | [Minimum Insertions to Balance a Parentheses String](https://leetcode.com/problems/min-insertions-to-balance-parenthesis/) | Stack, Greedy | 🟡 Medium | [Python](./Solutions/1541_Min_Insertions_To_Balance_Parenthesis.py) |
+| 2089 | [Find Target Indices After Sorting Array](https://leetcode.com/problems/find-target-array-after-sorting/) | Array, Counting, Sorting | 🟢 Easy | [Python](./Solutions/2089_find_target_array_after_sorting.py) |
+| 2267 | [Check if There Is a Valid Parentheses String Path](https://leetcode.com/problems/check-valid-str-path/) | Array, Dynamic Programming, Breadth-First Search, Matrix | 🔴 Hard | [Python](./Solutions/2267_check_valid_%28%29_str_path.py) |
+| 2409 | [Count Days Spent Together](https://leetcode.com/problems/count-days-spent-together/) | String, Simulation | 🟢 Easy | [Python](./Solutions/2409_Count_Days_Spent_Together.py) |
+| 2778 | [Sum of Squares of Special Elements ](https://leetcode.com/problems/sum-of-squares-of-special-elements/) | Array, Math | 🟢 Easy | [Python](./Solutions/2778_Sum_of_squares_of_special_elements.py) |
+| 2913 | [Subarrays Distinct Element Sum Of Squares](https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares/) | Array, Hash Set, Sliding Window | 🟡 Medium | [Python](./Solutions/2913_Subarrays_Distinct_Element_Sum_of_Squares.py) |
+| 3414 | [Max Score Non Overlap](https://leetcode.com/problems/max-score-non-overlap/) | Array, Dynamic Programming, Sorting, Binary Search | 🔴 Hard | [Python](./Solutions/3414_Max_score_non_overlap.py) |
+| 3464 | [Max Dist Bw Two Point In Squ](https://leetcode.com/problems/max-dist-bw-two-point-in-squ/) | Array, Sorting, Binary Search, Greedy | 🔴 Hard | [Python](./Solutions/3464_Max_dist_bw_two_point_in_squ.py) |
+| 3727 | [Maximum Alternating Subsequence Sum](https://leetcode.com/problems/max-alternating-sum-squares/) | Array, Sorting, Greedy | 🟡 Medium | [Python](./Solutions/3727_Max_Alternating_Sum_Squares.py) |
+| 3963 | [Grid With One Path](https://leetcode.com/problems/grid-with-one-path/) | Array, Matrix, Simulation | 🟢 Easy | [Python](./Solutions/3963_Grid_with_one_path.py) |
 <!-- LOG:END -->
 
 ---
