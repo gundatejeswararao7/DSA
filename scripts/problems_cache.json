@@ -23,6 +23,12 @@
     "title": "Add Two Numbers",
     "topic": "Linked List"
   },
+  "check-valid-str-path": {
+    "difficulty": "Hard",
+    "number": 2267,
+    "title": "Check if There Is a Valid Parentheses String Path",
+    "topic": null
+  },
   "climb-stairs": {
     "difficulty": "Easy",
     "number": 70,
