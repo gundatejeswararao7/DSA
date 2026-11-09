@@ -185,6 +185,12 @@
     "title": "Plus One",
     "topic": "Array"
   },
+  "remove-dup-sorted": {
+    "difficulty": null,
+    "number": 83,
+    "title": "Remove Duplicates from Sorted List",
+    "topic": null
+  },
   "remove-dup-sorted2": {
     "difficulty": null,
     "number": 80,
