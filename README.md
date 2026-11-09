@@ -90,7 +90,7 @@ space complexity so you can see which trade-offs were made.
 
 ## 📊 Progress Tracker
 
-<img src="./assets/progress.svg?v=fdc4e487" width="100%" />
+<img src="./assets/progress.svg?v=388551b5" width="100%" />
 
 <!-- PROGRESS:START -->
 | Difficulty | Solved |
@@ -98,7 +98,8 @@ space complexity so you can see which trade-offs were made.
 | 🟢 Easy | 10 |
 | 🟡 Medium | 32 |
 | 🔴 Hard | 5 |
-| **Total** | **47** |
+| ⚪ Unclassified | 1 |
+| **Total** | **48** |
 <!-- PROGRESS:END -->
 
 > 🤖 These numbers update automatically every time I push a new solution.
@@ -177,6 +178,7 @@ problem images. Add a solution, push, and the README updates itself.
 | 72 | [Edit Distance](https://leetcode.com/problems/edit-distance/) | String, Dynamic Programming | 🟡 Medium | [Python](./Solutions/72_Edit_Distance.py) |
 | 73 | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zero/) | Array, Matrix | 🟡 Medium | [Python](./Solutions/73_Set_matrix_zero.py) |
 | 74 | [Search a 2D Matrix](https://leetcode.com/problems/search-2d-matrix/) | Array, Binary Search, Matrix | 🟡 Medium | [Python](./Solutions/74_Search_2d_matrix.py) |
+| 80 | [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-dup-sorted2/) | Array, Two Pointers | ⚪ Unknown | [Python](./Solutions/80_remove_dup_sorted2.py) |
 | 678 | [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/) | Stack, Dynamic Programming, Top-Down Approach | 🟡 Medium | [Python](./Solutions/678_Valid_Parenthesis_String.py) |
 | 856 | [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/) | String | 🟡 Medium | [Python](./Solutions/856_Score_of_Parentheses.py) |
 | 921 | [Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) | Stack | 🟡 Medium | [Python](./Solutions/921_Minimum_Add_to_Make_Parentheses_Valid.py) |
